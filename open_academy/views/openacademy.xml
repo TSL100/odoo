@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="open_academy_session_search" model="ir.ui.view">
+        <field name="model">open_academy.session</field>
+        <field name="arch" type="xml">
+            <search string="open_academy">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="open_academy_session_tree">
+        <field name="name">open_academy tree</field>
+        <field name="model">open_academy.session</field>
+        <field name="arch" type="xml">
+            <tree decoration-info = "duration&lt;5" editable="top">
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="course_id"/>
+                <field name="duration" invisible="1"/>
+                <field name="taken_seats" widget="progressbar"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="open_academy_session_form">
+        <field name="name">open_academy form</field>
+        <field name="model">open_academy.session</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="start_date"/>
+                            <field name="course_id"/>
+                        </group>
+                        <group>
+                            <field name="duration"/>
+                            <field name="seats"/>
+                            <field name="taken_seats" widget="progressbar"/>
+                        </group>
+                        <label for="attendee_ids"/>
+                        <field name="attendee_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="open_academy.action_session">
+        <field name="name">open_academy session</field>
+        <field name="res_model">open_academy.session</field>
+        <field name="view_mode">tree,form,search</field>
+    </record>
+    <menuitem name="session" id="open_academy.session" parent="open_academy_menu_root"
+              action="open_academy.action_session"/>
+</odoo>

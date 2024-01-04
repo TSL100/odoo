@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_hospital_female_patient" model="ir.actions.act_window">
+        <field name="name">Female Patients</field>
+        <field name="res_model">hospital.patient</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="domain">[('gender', '=', 'female')]</field>
+<!--        <field name="context">{'search_default_filter_female':1,'search_default_group_by_gender':1}</field>-->
+        <field name="context">{'search_default_filter_female':1,'default_age':5,'hide_gender':"1"}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first patient!
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+            id="menu_female_patient"
+            name="Female Patient"
+            parent="menu_hospital_master"
+            sequence="0"
+            action="action_hospital_female_patient"/>
+
+</odoo>

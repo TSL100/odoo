@@ -1,0 +1,56 @@
+<odoo>
+
+    <record id="view_hospital_patient_tag_tree" model="ir.ui.view">
+        <field name="name">hospital.patient.tag.tree</field>
+        <field name="model">patient.tag</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" string="Patient Name"/>
+                <field name="color" string="Color" widget="color_picker"/>
+                <field name="active" string="Active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hospital_patient_tag_form" model="ir.ui.view">
+        <field name="name">hospital.patient.tag.form</field>
+        <field name="model">patient.tag</field>
+        <field name="arch" type="xml">
+            <form string="Patient Details">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group>
+                            <field name="color" widget="color_picker"/>
+                            <field name="color_2" widget="color"/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_hospital_patient_appointment" model="ir.actions.act_window">
+        <field name="name">Patient Tag</field>
+        <field name="res_model">patient.tag</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form,search</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first appointment!
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+            id="menu_patient_tag"
+            name="Patient Tag"
+            parent="menu_configuration"
+            sequence="10"
+            action="action_hospital_patient_appointment"/>
+</odoo>

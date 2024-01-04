@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="report_patient">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.internal_layout">
+                    <div class="page">
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <div class="oe_structure"/>
+                        <div class="row">
+                            <div class="col-xl-2" style="margin:auto;">
+                                <h1><span t-field="o.reference"/></h1>
+                            <div>
+                                <center>
+                                        <table width="400" style="border:3px solid black !important;">
+                                            <tr>
+                                                <td>
+<!--                                                    <img t-if="not badge.badge_id.image_1920 and badge.badge_id.level"-->
+<!--                                                         width="38" height="38"-->
+<!--                                                         t-attf-src="/website_profile/static/src/img/badge_#{badge.badge_id.level}.svg"-->
+<!--                                                         class="o_object_fit_cover mr-0"-->
+<!--                                                         t-att-alt="badge.badge_id.name"/>-->
+<!--                                                    <img t-else=""-->
+<!--                                                         width="38" height="38"-->
+<!--                                                         t-att-src="website.image_url(badge.badge_id, 'image_128')"-->
+<!--                                                         class="o_object_fit_cover mr-0"-->
+<!--                                                         t-att-alt="badge.badge_id.name"/>-->
+                                                    <p style="text-align:center;">
+                                                        <h2>
+                                                            <strong>
+                                                                <span t-field="o.name"/>
+                                                            </strong>
+                                                        </h2>
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <td>
+                                                        <p style="text-align:right;">
+                                                            <strong>Age:</strong>
+                                                        </p>
+                                                        <p style="text-align:right;">
+                                                            <strong>Group:</strong>
+                                                        </p>
+                                                        <p style="text-align:right;">
+                                                            <strong>Phone no:</strong>
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <p style="text-align:left;padding-left:10px;" t-field="o.age"/>
+                                                        <p style="text-align:left;padding-left:10px;" t-field="o.name"/>
+                                                        <p style="text-align:left;padding-left:10px;" t-field="o.phone"/>
+                                                    </td>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <br></br>
+                                        <table width="400" style="border:3px solid black !important;">
+                                            <t t-foreach="appointment_list" t-as="app">
+                                                <tr>
+                                                    <td>
+                                                        <t t-esc="app['name']"/>
+                                                    </td>
+                                                    <td>
+                                                        <t t-esc="app['booking_date']"/>
+                                                    </td>
+                                                    <td>
+                                                        <t t-esc="app['state']"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </table>
+                                </center>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="open_academy_partner_form">
+        <field name="name">open_academy partner form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Sessions">
+                    <group>
+                        <field name="instructor"/>
+                        <field name="session_ids"/>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="open_academy.action_partner">
+        <field name="name">open_academy partner</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form,search</field>
+    </record>
+    <menuitem name="config" id="open_academy.config" parent="open_academy_menu_root"
+              action="open_academy.action_partner"/>
+</odoo>

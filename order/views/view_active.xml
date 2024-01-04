@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+        <record model="ir.ui.view" id="loures_tree_view">
+            <field name="name">loures tree</field>
+            <field name="model">manage.order</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="new_field"/>
+                </tree>
+            </field>
+        </record>
+    <record id="open_module_active" model="ir.actions.act_window">
+        <field name="name">Active</field>
+        <field name="res_model">manage.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_active_root" name="Active"/>
+    <menuitem id="menu_active" name="Active_child" parent="menu_active_root" action="open_module_active"/>
+</odoo>

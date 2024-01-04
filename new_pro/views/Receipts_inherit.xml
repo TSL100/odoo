@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="inherit_account_order_view" model="ir.ui.view">
+        <field name="name">inherit.account.order</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='move_type']" position="before">
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_view_picking" type="object"
+                            icon="fa-truck"
+                            groups="stock.group_stock_user">
+                        <div class="o_stat_info">
+                            <span class="o_stat_text">Receipt Orders</span>
+                        </div>
+                    </button>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+
